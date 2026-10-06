@@ -153,10 +153,22 @@ const authenticateToken = (req, res, next) => {
 // ------------------------------------------
 
 app.post('/api/register', async (req, res) => {
-
   try {
-
     const { username, password } = req.body;
+
+    if (!username || !password) {
+      return res.status(400).json({
+        error: "Username and password are required."
+      });
+    }
+
+    const existingUser = await User.findOne({ username });
+
+    if (existingUser) {
+      return res.status(409).json({
+        error: "Username already exists."
+      });
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -167,20 +179,18 @@ app.post('/api/register', async (req, res) => {
 
     await newUser.save();
 
-    res.json({
+    res.status(201).json({
       message: "User created successfully!"
     });
 
   } catch (error) {
+    console.error("Registration error:", error);
 
-    console.error(error);
-
-    res.status(400).json({
-      error: "Username might already exist."
+    res.status(500).json({
+      error: "Registration failed. Please try again."
     });
   }
 });
-
 
 app.post('/api/login', async (req, res) => {
 
