@@ -99,8 +99,14 @@ export default function App() {
       await axios.post(`${API_URL}/register`, { username, password });
       alert("Registration successful! Please log in.");
       setIsLoginView(true);
-    } catch (err) { console.error(err); alert("Error registering. Username might be taken."); }
-  };
+    } catch (err) {
+    console.error("Registration error:", err);
+
+    alert(
+        err.response?.data?.error ||
+        "Registration failed. Please try again."
+    );
+}  };
 
   const handleCreateProject = async (e) => {
     e.preventDefault();
