@@ -508,7 +508,7 @@ frontend/
 ```
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=https://smart-project-management-system-1-yl0s.onrender.com/api
 ```
 
 If your backend is deployed:
@@ -552,7 +552,7 @@ node server.js
 Server running on:
 
 ```text
-http://localhost:5000
+https://smart-project-management-system-1-yl0s.onrender.com
 ```
 
 ---
