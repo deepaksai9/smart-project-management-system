@@ -40,7 +40,9 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState("All");
 
-  const API_URL = import.meta.env.VITE_API_URL || "https://smart-project-management-system-1-yl0s.onrender.com/api";
+ const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "https://smart-project-management-system-vwes.onrender.com/api";
 
   const authConfig = () => ({ headers: { Authorization: `Bearer ${token}` } });
 
