@@ -310,14 +310,6 @@ project-manager-app/
     └── index.html
 ```
 
-## 🎬 Live Demo
-
-<p align="center">
-  <img src="./assets/gifs/demo.gif"
-       alt="Project Flow Demo"
-       width="100%">
-</p>
-
 ---
 
 ## 📸 Screenshots
